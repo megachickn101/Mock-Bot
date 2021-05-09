@@ -18,7 +18,8 @@ client = commands.Bot(command_prefix = 'm.', intents=intents)
 client.remove_command('help')
 
 def is_it_me(ctx):
-	return ctx.author.id == 601881016461819907
+	#insert your id
+	return ctx.author.id ==
 
 def memify(text):
 	new = []
@@ -96,27 +97,23 @@ async def mock(ctx, *, message, amount=1):
 	await ctx.send(memify(message.content))
 	await ctx.send(f'-{username}')
 	await ctx.send("https://cdn.discordapp.com/attachments/651218357747449906/836372980027097168/mockingspongebobbb.jpg")
-	print(f'Command Used: say {message}')
 	return
 
 @client.command()
 async def roast(ctx):
 	options = ['You look like something that I would draw with my left hand.', 'I refuse to have a battle of wits with somebody who is unarmed!', 'If I ever said anything to offend you, it was purely intentional.', 'Im not saying that I hate you, but I would unplug your life support to charge my phone.', 'In spite of what it did to you, dont you love nature?', 'Ive seen someone like you before, but I had to pay admission.', 'You have the perfect face for radio!', 'Youre not as bad as people say. Youre a whole lot worse.', 'Im not sure what your problem is, but Id be wiling to bet that its hard to pronounce.', 'Its pretty easy to figure out when youre lying. Your lips are moving.', 'Wow! You look like a before picture!', 'I wanted to give you a nasty look, but you already had one.', 'I dont think youre un-intelligent. You just have bad luck when it comes to thinking.', 'Brains arent everything. And, in your case, theyre nothing.', 'Its looks like your face caught on fire and somebody tried to extinguish it with a hammer.', 'Its really great to see how you dont let your education get in the way of your ignorance.', 'They say that we all sprang from apes. As it stands, you didnt seem to spring far enough.', 'Im really jealous of everyone that hasnt met you!', 'Most people live and learn. Apparently you just live.', 'There is only one problem with your face...I can see it.', 'So a thought crossed your mind? Well, that journey must have been long and lonely.', 'Its amazing what youve done with your hair! How did you manage to grow it out of your nostrils like that?', 'Hey, theres something on your chin. No, no...the third one down.', 'They say that laughter is the medicine. Seems like your face is curing the world!', 'You were born on a highway right? Because that’s where most accidents happen.']
 	await ctx.send(f'{random.choice(options)}')
-	print('Command Used: roast')
 	return
 
 @client.command()
 async def ping(ctx):
 	await ctx.send(f'Pong! {round(client.latency * 1000)}ms. Stupid')
-	print('Command Used: ping')
 	return
 
 @client.command()
 async def time(ctx):
 	x = datetime.datetime.now()
 	await ctx.send(x)
-	print("Command Used: Time")
 
 @client.command()
 async def help(ctx):
@@ -125,7 +122,7 @@ async def help(ctx):
 	embed.set_footer(text=ctx.author.name, icon_url=ctx.author.avatar_url)
 	embed.set_thumbnail(url='https://cdn.discordapp.com/attachments/651218357747449906/836372980027097168/mockingspongebobbb.jpg')
 
-	embed.add_field(name='target', value='Select someone to have me mock in the server. (Requires Admin Permissions)')
+	embed.add_field(name='target <user>', value='Select someone to have me mock in the server. (Requires Admin Permissions)')
 	embed.add_field(name='mock <message>', value='Mocks the message inputted')
 	embed.add_field(name='roast', value='Outputs a roast')
 	embed.add_field(name='ping', value='Shows ping')
@@ -146,5 +143,5 @@ async def fshutdown(ctx):
 	conn.close()
 	await client.close()
 
-#Insert Token Between ""
+#insert your token
 client.run("")
