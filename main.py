@@ -94,7 +94,7 @@ async def target(ctx, *, member : discord.Member):
 async def mock(ctx, *, message, amount=1):
 	username = ctx.author.name
 	await ctx.channel.purge(limit=amount)
-	await ctx.send(memify(message.content))
+	await ctx.send(memify(message))
 	await ctx.send(f'-{username}')
 	await ctx.send("https://cdn.discordapp.com/attachments/651218357747449906/836372980027097168/mockingspongebobbb.jpg")
 	return
