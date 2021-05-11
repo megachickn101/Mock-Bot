@@ -46,6 +46,18 @@ async def on_message(message):
 		await message.channel.send("https://cdn.discordapp.com/attachments/651218357747449906/836372980027097168/mockingspongebobbb.jpg")
 	await client.process_commands(message)
 
+#error handler
+@client.event
+async def on_command_error(ctx, error):
+	if isinstance(error, commands.MissingRequiredArgument):
+		await ctx.send(f"You Forgot A Part Of The Command. Get Your Commands Together")
+
+	elif isinstance(error, commands.MissingPermissions):
+		await ctx.send(f"LOL You Don't Have The Proper Permissions XD")
+
+	else:
+  		raise error
+
 @client.event
 async def on_ready():
 	await client.change_presence(status=discord.Status.idle, activity=discord.Game('m.help | Mocking Since 2021'))
